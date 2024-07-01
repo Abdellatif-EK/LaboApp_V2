@@ -1,0 +1,22 @@
+{% extends 'authentification/base.html' %}
+{% load static %}
+{% block content %}
+<h1>Pharma 5 Smart Factory</h1>
+<p class="para"> Voilà les équipements dont nous disposons au <strong>{{equipement.0.Emplacement}}</strong> </p>
+<p> </p>
+<ul>
+    {% for appareil in equipement %}
+    <li>
+        <a href="{% url 'appareil-detail' appareil.id %}">{{ appareil.Code_machine }}</a> 
+        <span style="padding-left: 8%;">
+          {% if user.is_superuser %}
+                <a href="{% url 'equip-update' appareil.id %}" class="btn btn-primary">Mise à jour</a>     
+          {%endif%}
+        </span>
+    </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'home' %}"><button type="button" class="btn btn-info" style="padding: 10px;">Retour à l'acceuil </button></a>
+<a href="{% url 'labo1' %}"><button type="button" class="btn btn-info" style="padding: 10px;">Retour à la carte</button></a>
+
+{% endblock %}

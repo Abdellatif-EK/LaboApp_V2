@@ -1,0 +1,29 @@
+{% extends 'authentification/base.html' %}
+{% load static %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div class="container">
+    <div class="card bg-light mb-3">
+        <div class="card-header">
+            <h1 class="my-4 text-center">Ajouter un appareil</h1>
+        </div>
+        <div class="card-body">
+            <form action="" method="post" class="border p-4">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary btn-block">Envoyer</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="container">
+    <div class="alert alert-danger alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Alert! </strong> Désolé, vous n'êtes pas connecter!  .
+    </div>
+</div>
+<a class="nav-link active" aria-current="page" href="{% url 'connexion' %}">Connectez-vous!</a>
+{% endif %}
+{% endblock %}

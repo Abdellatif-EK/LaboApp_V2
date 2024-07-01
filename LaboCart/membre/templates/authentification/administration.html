@@ -1,0 +1,99 @@
+{% extends 'authentification/base.html' %}
+{% block content %}
+{% if user.is_superuser %}
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Table</title>
+    <!-- <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+     -->
+<style>
+    h1{
+            font-size:30px;
+        }
+        /*Table Style One*/
+        .table .table-header{
+            background:#00abbe;
+            color:#333;
+        }
+        .table .table-header .cell{
+            padding:20px;
+        }
+        @media screen and (max-width: 640px){
+            table {
+                overflow-x: auto;
+                display: block;
+            }
+            .table .table-header .cell{
+                padding:20px 5px;
+            }
+        }
+
+        /* Récupérer les styles actuels du lien */
+.btn-link {
+    color: #007bff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    background-color: #fff;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Ajouter des styles supplémentaires */
+.btn-link:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Aligner le lien à droite */
+#btn-link {
+    display: inline-block;
+    float: right;
+    margin-right: 200px; /* Espacement à droite */
+}
+
+</style>
+<!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
+</head>
+<body>
+{% if Utilisateurs %}
+<!-- <button href="{% url 'ajout' %}">Ajouter utilisateur</button> -->
+<a href="{% url 'ajout' %}" class="btn btn-primary" id="btn-link">Ajouter un utilisateur</a>
+<div class="container">
+    <h1><i class="fa fa-solid fa-list"></i> <span></span>Listes des Utilisateurs</h1>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table">
+                <tr class="table-header">
+                    <th class="cell">Prenom</th>
+                    <th class="cell">Nom</th>
+                    <th class="cell">Email</th>
+                    <th class="cell">Phone No.</th>
+                    <th class="cell">Actions</th>
+                </tr>
+                {% for uti in Utilisateurs %}
+                <tr class="active">
+                    <td class="cell">{{ uti.first_name }} </td>
+                    <td class="cell">{{ uti.last_name }}</td>
+                    <td class="cell">{{ uti.email }}</td>
+                    <td class="cell">{{ uti.phone }}</td>
+                    <td class="cell">Actions</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+{% else %}
+<h2> Aucun utilisateur n'est enregistré</h2>
+
+{% endif %}
+<h3><b> <a href="{% url 'admin:index' %}"> Page d'Administration</a> </b></h3>
+</body>
+</html>
+
+{% endif %}
+{% endblock %}

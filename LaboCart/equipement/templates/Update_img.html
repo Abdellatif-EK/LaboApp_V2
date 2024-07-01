@@ -1,0 +1,24 @@
+{% extends 'authentification/base.html' %}
+{% load static %}
+{% block content %}
+<div style="padding-left: 5%;">
+    <h1>L'appareil : <strong>{{appareil.Appareil}}</strong>  </h1>
+    <p> <strong> {{appareil.Code_machine}} </strong> </p>
+</div>
+<div class="container">
+    <p>
+      si vous souhaitez l'une image, voici comment procéder:
+      <br>
+      Vous trouver ci-dessous les id des différents images correspondant à cet appareil. Pour supprimer une image particulière vous noter <strong>son identifiant</strong> puis vous allez dans la page d'administration partie image pour y chercher 
+      l'image en question. Vous pourrez le supprimer la-bas. A noter que les images sont de la droite vers la gauche, du haut vers le bas.
+      <br> <strong> Les identifiants sont respectivement: </strong> <br>
+      {% for image in image_appareil %}
+      <li>{{ image.id }} <a href="{% url 'replace_image' image.id %}" class="btn btn-primary" style="margin-left: 20px;">Mise à jour de l'image</a> <br></li> 
+      {% endfor %}
+      <br>
+      <a href="{% url 'adminn' %}">Allez à la page d'administration</a>
+    </p>
+</div>
+<br>
+<a href="{% url 'appareil-detail' appareil.id %}" style="padding: 10px;"><button type="button" class="btn btn-info">Retour aux détails</button></a>
+{% endblock %}

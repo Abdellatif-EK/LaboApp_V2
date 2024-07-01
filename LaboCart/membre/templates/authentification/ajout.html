@@ -1,0 +1,33 @@
+{% extends 'authentification/base.html' %}
+{% block content %}
+{% if user.is_superuser %}
+<div class="no-scroll">
+    {% if success %}
+        <div class="alert alert-success " role="alert">
+            le nouveau utilisateur a été ajouté avec succès
+        <a href="{% url 'index' %}" class="alert-link">Consulter la liste des Utilisateurs</a>
+        </div>
+    {% else %}
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <div class="card bg-light mb-3">
+                <div class="col-md-6">
+                    <h1>Ajouter un utilisateur</h1>
+                </div> 
+                <div class="card-body">
+                    <form action ="{% url 'ajout' %}" method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary">Ajouter</button>
+                        <a href="{% url 'index' %}" class="btn btn-secondary">Retour</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% else %}
+<h1>Vous n'avez pas les droits pour accéder à cette page</h1>
+{% endif %}
+{% endblock %}

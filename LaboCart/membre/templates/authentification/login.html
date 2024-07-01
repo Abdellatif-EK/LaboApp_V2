@@ -1,0 +1,22 @@
+{% extends 'authentification/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h3><b>Veuillez vous connecter !</b></h3>
+    <div class="forum">
+    <form action="" method=POST>
+        {% csrf_token %}
+        <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Nom d'utilisateur</label>
+        <input type="text" class="form-control" name="utilisateur" aria-describedby="emailHelp" placeholder="nom d'utilisateur" autocomplete="off">
+        <div id="emailHelp" class="form-text">Vos informations ne seront jamais divulgué</div>
+        </div>
+        <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" name="password" placeholder="mot de passe" autocomplete="off">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form> 
+    </div>
+</div> 
+{% endblock %}

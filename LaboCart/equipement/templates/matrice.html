@@ -1,0 +1,229 @@
+    {% extends 'authentification/base.html' %}
+    {% load static %}
+    {% block content %}
+    <script src="{% static 'scripts.js' %}"></script>
+    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="confirmDeleteModalLabel">Supprimer la ligne de la matrice d'accès</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Êtes-vous sûr de vouloir supprimer cette ligne de la matrice d'accès ?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+            <a type="button" class="btn btn-danger" id="confirmDeleteButton">Supprimer</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+          
+            <div class="col-4" style="background-color: aliceblue;">
+              <h3>Equipements</h3>
+              <form action="{% url 'matrice_pagel' %}" method=POST>
+                {% csrf_token %}
+                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="group">
+                  <option selected>Choisissez un groupe</option>
+                  <option value="1">HPLC</option>
+                  <option value="2">Spectrophotomètre</option>
+                  <option value="3">Balance</option>
+                  <option value="4">Enceinte climatique</option>
+                  <option value="5">Microbiologie</option>
+                  <option value="autre">Autre</option>
+                </select>
+                <button type="submit" class="btn btn-secondary">Choisir</button>
+              </form>
+            <table class="table">
+              <thead class="table-light">
+              {% if appareil %}
+              <tr>
+                <th scope="col">Code machine</th>
+                <th scope="col">Voir</th>
+              </tr></thead>
+              {% for appareils in appareil %}
+              <tbody>
+                  <td><a href="{% url 'appareil-detail' appareils.id %}">{{ appareils.Code_machine }}</a> </td>
+                  <td>    
+                    <a href="{% url 'matrice_detail' appareils.id %}" class="btn btn-primary matrice-button" id="matrice-button-{{ appareils.id }}">Voir la matrice d'accès</a>          
+                </td>
+                
+            </tbody>
+            {% endfor %}
+            {% endif %}
+            </table>        
+          </div>
+          
+          
+          <div class="col-8"  style="background-color: rgb(236, 238, 239);">
+            <h3 style="text-align: center;"> La Matrice d'accès de l'equipement {{ matrice.0.equipement }} </h3>
+
+            
+          <div>
+
+
+            {% if user.is_superuser %}
+            <form class="align-baseline" id="uploadForm" action="" method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              <input type="file" name="excel_file">
+              <div style="height: 0.5cm;"></div>
+              <button type="submit" class="btn btn-primary" id="importer-button">Importer l'Excel</button>
+            </form>
+            {% endif %}
+            <form class="align-baseline"  id="downloadForm" action="" method="POST" enctype="multipart/form-data"></form>
+            <button type="submit" class="btn btn-primary" id="exportButton" style="margin-left: 730px;">Extraire l'Excel</button>
+            </form>
+          </div>
+          {% if user.is_superuser %}
+            <!-- <a href="{% url 'add_matrice_line' appareil.0.Num %}" class="btn btn-primary" id="btn-link">Ajouter un utilisateur à la matrice d'accès</a> -->
+            <a href="{% url 'add_matrice_line' appareil.0.Num %}" class="btn btn-primary" id="btn-link">Ajouter un utilisateur</a>
+            {%endif%}
+            <div style="height: 0.5cm;"></div>
+            <table class="table table-bordered" id="matrice-container">
+              {% if matrice %}
+              <thead class="table-light"><tr>
+                <th scope="col">Login</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prenom</th>
+                <th scope="col">Role</th>
+                <th scope="col">Situation</th>
+                <th scope="col">Date de modification</th>
+                {% if user.is_superuser %}
+                <th scope="col">Actions</th>
+                {% endif %}
+              </tr></thead>
+              
+              <tbody>
+                {% for m in matrice %}
+                <tr>
+                    <td>{{m.login}}</td>
+                    <td>{{m.Nom}}</td>
+                    <td>{{m.Prenom}}</td>
+                    <td>{{m.Role}}</td>
+                    <td>{{m.Situation}}</td>
+                    <td>{{m.date_modfication}}</td>
+                    {% if user.is_superuser %}
+                    <td>
+                      <a class="btn btn-warning me-l" href="{% url 'edit' m.id %}" id="btn class">
+                        <i class="fa-solid fa-pen-to-square fa-lg"></i>
+                      </a>
+                      <a class="btn btn-danger" href="{% url 'delete' m.id %}" id="delete-button-{{ m.id }}">
+                        <i class="fa-solid fa-trash fa-lg"></i>
+                      </a>
+                    </td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+                {% else %}
+                <div>La matrice d'accès de cet équipement n'est pas encore mis à jour</div>
+                {% endif %}
+              </tbody>
+            </table>
+            <script>
+              
+              let selectedEquipementId = null;
+              const currentUrl = window.location.href;
+              const urlParts = currentUrl.split('/');
+              selectedEquipementId = urlParts[urlParts.length - 2];
+
+          document.addEventListener("DOMContentLoaded", function() {
+    // Attach click event listener to all matrice buttons
+    document.querySelectorAll('.matrice-button').forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault();
+            // Log a debug message when the button is clicked
+            console.log("Matrice button clicked");
+            // Get the equipement ID from the button's ID attribute
+            const selectedEquipementId = button.getAttribute('id').split('-').pop();
+            console.log("Selected equipement ID:", selectedEquipementId); // Log the selected equipement ID to the console
+            // Construct the URL based on the equipement ID
+            const url = `/equipement/upload_excel/${selectedEquipementId}/`;
+            console.log("Constructed URL:", url); // Log the constructed URL to the console
+            // Navigate to the URL
+            window.location.href = url;
+        });
+    });
+});
+
+      // Attach click event listener to the importer button
+      document.getElementById('importer-button').addEventListener('click', function(event) {
+      event.preventDefault();
+      // Check if an equipement has been selected
+      if (selectedEquipementId !== null) {
+          // Construct the upload URL using the selected equipement ID
+          const uploadUrl = `/equipement/upload_excel/${selectedEquipementId}/`;
+          console.log(uploadUrl); // Log the URL to the console
+          // You can now submit the form or perform any other action using the upload URL
+          // For example, you can use JavaScript to submit the form programmatically:
+          document.getElementById('uploadForm').action = uploadUrl;
+          document.getElementById('uploadForm').submit();
+      } else {
+          console.log("No equipement selected.");
+      }
+  });
+
+document.getElementById('btn-link').addEventListener('click', function(event) {
+    event.preventDefault();
+    // Check if an equipement has been selected
+    //const selectedEquipementId = document.querySelector('.matrice-button').dataset.equipementId;
+    if (selectedEquipementId) {
+        // Construct the URL based on the selected equipement ID
+        const addMatriceUrl = `/equipement/add_matrice_line/${selectedEquipementId}/`;
+        // Redirect to the add_matrice_line page
+        window.location.href = addMatriceUrl;
+    } else {
+        console.log("No equipement selected.");
+    }
+});
+
+    document.getElementById('exportButton').addEventListener('click',function(event){
+      event.preventDefault();
+      if (selectedEquipementId !== null) {
+            // Construct the upload URL using the selected equipement ID
+            const uploadUrl = `/equipement/download_excel/${selectedEquipementId}/`;
+            console.log(uploadUrl); // Log the URL to the console
+            // You can now submit the form or perform any other action using the upload URL
+            // For example, you can use JavaScript to submit the form programmatically:
+            document.getElementById('downloadForm').action = uploadUrl;
+            document.getElementById('downloadForm').submit();
+        } else {
+            console.log("No equipement selected.");
+        }
+    });  
+
+
+// Select all delete buttons
+const deleteButtons = document.querySelectorAll('#matrice-container .btn-danger');
+
+// Add click event listener to each delete button
+deleteButtons.forEach(button => {
+  button.addEventListener('click', event => {
+    // Prevent the default link behavior
+    event.preventDefault();
+
+    // Get the ID of the matrix line to be deleted
+    const matrixId = button.id.split('-').pop();
+
+    // Show the confirmation pop-up
+    const confirmDeleteModal = new bootstrap.Modal(document.getElementById('confirmDeleteModal'));
+    confirmDeleteModal.show();
+
+    // Add click event listener to the confirm delete button
+    const confirmDeleteButton = document.getElementById('confirmDeleteButton');
+    confirmDeleteButton.addEventListener('click', () => {
+      // Redirect to the delete page
+      window.location.href = `/equipement/delete/${matrixId}/`;
+    });
+  });
+});
+        </script>
+
+          </div>
+        </div>
+      </div>
+
+{% endblock %}

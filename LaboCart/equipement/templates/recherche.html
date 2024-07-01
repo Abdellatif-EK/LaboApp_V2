@@ -1,0 +1,32 @@
+{% extends 'authentification/base.html' %}
+{% load static %}
+{% block content %}
+{% if user.is_authenticated %}
+
+<div class="container">
+  {% if appareils %}
+    <p>Voilà les résultats de votre recherche:</p>
+    <ul class="list-group">
+      {% for appareil in appareils %}
+      <li class="list-group-item">
+        <a href="{% url 'appareil-detail' appareil.id %}" class="float-left">{{ appareil.Code_machine }}</a>
+        {% if user.is_superuser %}
+          <a href="{% url 'equip-update' appareil.id %}" class="btn btn-primary float-right ml-2">Mise à jour</a>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</div>
+
+{% else %}
+<div class="container">
+  <div class="alert alert-danger alert-dismissible">
+      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+      <strong>Alert! </strong> Désolé, vous n'êtes pas connecter!  .
+  </div>
+</div>
+<a class="nav-link active" aria-current="page" href="{% url 'connexion' %}">Connectez-vous!</a>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,175 @@
+{% extends 'authentification/base.html' %}
+{% load static %}
+{% block content %}
+<h1 style="padding-left: 20px;">Pharma 5 Smart Factory</h1>
+<div class="page-equip">
+<div class="container">
+  <div class="row row-cols-1 row-cols-xs-1 row-cols-md-3 row-cols-lg-6 g-4">
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Hote_a_flux_laminaire.jpg' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail1' 'H' %}"> Hôte a flux laminaire</a></h5>
+          <p class="card-text"> Les hottes à flux laminaire sont des équipements conçues pour créer une zone de travail stérile et protégée pour les opérations délicates nécessitant un haut niveau de propreté (manipulation de substances sensibles à la contamination). </p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Bain marie.jpg' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail1' 'Bain' %}"> Bain marie </a> </h5>
+          <p class="card-text">Les bains-marie sont utilisés pour le chauffage et le maintien à une température constante de substances sensibles à la chaleur.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Enregisteur_T.png' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail1' 'Enregistreur de' %}">Enregisteur T° et/ou d'humidité</a></h5>
+          <p class="card-text">Un instrument essentiel utilisé dans les laboratoires de contrôle.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Isolateur.jpg' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail1' 'ISOLATEUR' %}"> ISOLATEUR </a></h5>
+          <p class="card-text">Les isolateurs(enceintes à atmosphère contrôlée) sont utilisés pour créer des environnements contrôlés et hermétiques dans lesquels les substances sensibles ou dangereuses peuvent être manipulées en toute sécurité.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Osmometre.png' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail1' 'Osmom' %}"> Osmomètre </a></h5>
+          <p class="card-text">Les osmomètres sont des instruments utilisés dans les laboratoires pharmaceutiques pour mesurer l'osmolalité d'une solution.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Compteur de colonie.jpg' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail1' 'compteur de coloni' %}"> Compteur de colonie </a></h5>
+          <p class="card-text">Le compteur de colonie est un équipement utilisé dans les laboratoires pharmaceutiques pour compter et évaluer les colonies bactériennes ou fongiques présentes dans un échantillon.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Compteur de particule.png' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail1' 'Compteur de particule' %}"> Compteur de particules </a></h5>
+          <p class="card-text">Le compteur de particules est un équipement utilisé dans les laboratoires pharmaceutiques pour mesurer la concentration et la taille des particules présentes dans l'air ou dans des échantillons liquides. </p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Balance.jpg' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail1' 'Balance' %}"> Balance Electronique </a> </h5>
+          <p class="card-text">Les balances sont utilisées dans les laboratoires de contrôle pour mesurer avec précision la masse des échantillons ou des substances utilisées dans les expériences ou les tests.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Imprimante.jpg' %}" class="card-img-top" alt=" Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail1' 'Imprimante' %}">  Imprimante </a></h5>
+          <p class="card-text">Un instrument essentiel utilisé dans les laboratoires de contrôle pour l'impression des différents documents, resultats d'analyse.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Agitateur.jpg' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail1' 'Agitateur' %}"> Agitateur </a></h5>
+          <p class="card-text">L’agitateur de laboratoire est l’équipement qui permet de mélanger et d’assurer l’homogénéité d’une solution.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/autoclave.png' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail1' 'Autoclave' %}"> Autoclave </a></h5>
+          <p class="card-text">Un autoclave est un appareil de laboratoire permettant de réaliser la stérilisation, sous pression, d'objets de forme pleine, creuses, poreuse, emballée ou non emballée.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/refregirateur.jpg' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail1' 'Réfrigérateur' %}">Réfrigérateur</a> </h5>
+          <p class="card-text">Les réfrigérateurs permettent de maintenir une température de stockage interne (entre 1 °C et 15 °C) pour stocker et protéger les différents produits et autres substances sensibles aux températures</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/congelateur.png' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail1' 'Congélateur' %}">Congélateur</a> </h5>
+          <p class="card-text"> Les Congélateur tout comme les réfrigérateurs stock divers produits mais à température plus bas (en général dans les négatifs)</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Phmeter.jpg' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail1' 'Phm' %}">Phmètre</a> </h5>
+          <p class="card-text">Les pH-mètres permettent de mesurer et de contrôler le pH des échantillons pour vérifier leur conformité aux spécifications et aux normes établies.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Purificateur.jpg' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail1' 'Syst' %}">  Système de purification d'eau </a></h5>
+          <p class="card-text"> Les systèmes de purification d'eau sont essentiels pour garantir la disponibilité d'une eau de haute qualité et pure, qui est utilisée dans diverses étapes du processus de fabrication pharmaceutique.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Lecteur des microplaques.png' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail1' 'Lecteur de microplaques' %}"> Lecteur de microplaques </a></h5>
+          <p class="card-text"> Ils sont spécialement conçus pour effectuer des mesures quantitatives et qualitatives sur des échantillons placés dans des plaques de microtitrage, qui sont des plaques plates avec de multiples puits.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Biocollecteur d\'air.png' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail1' 'bicollecteur' %}"> bicollecteur d'air </a></h5>
+          <p class="card-text"> Les bicollecteurs d'air sont des dispositifs utilisés dans les laboratoires pharmaceutiques pour échantillonner l'air ambiant dans des environnements contrôlés </p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Etuve.png' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail1' 'Etuve' %}">Etuve</a></h5>
+          <p class="card-text">Une étuve est un équipement de laboratoire permettant de chauffer à température régulée des éléments par pression atmosphérique ou pression sous-vide.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<a href="{% url 'home' %}"><button type="button" class="btn btn-info" style="padding: 10px; margin-top: 1%;">Retour à l'acceuil </button></a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'authentification/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="card bg-light mb-3">
+        <div class="card-header">
+            <h1 class="my-4 text-center">Mise à jour d'un appareil</h1>
+        </div>
+        <div class="card-body">
+            <form action="" method="post" class="border p-4">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary btn-block">Envoyer</button>
+            </form>
+            <br>
+            <a href="{% url 'appareil-detail' appareil.id %}" class="btn btn-info btn-block">Retour aux détails</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

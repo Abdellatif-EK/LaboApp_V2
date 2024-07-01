@@ -1,0 +1,88 @@
+{% extends 'authentification/base.html' %}
+{% load static %}
+{% block content %}
+<h1 style="padding-left: 5%;">Pharma 5 Smart Factory</h1>
+<div class="container-1">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+            <h3 class="para"> Voilà l'équipement dont nous disposons</h3>
+        
+            <p style="font-size: 15px;">L'emplacement :<strong>{{appareil.Emplacement}}</strong> </p>
+                <a href="{{ image_appareil.0.image.url }}"><img src="{{ image_appareil.0.image.url }}" alt="Image {{ image_appareil.0.id }}" style="width: 400px; height: 400px; padding-left: 8%; padding-bottom: 5px;"></a>
+                <br>
+                
+        </div>
+        <div class="col"  style="font-size: 13px;">
+            <br> 
+            <ul>
+                <br><br>
+                <li>Appareil : <strong>{{appareil.Appareil}}</strong> </li>
+                <li>Code machine : <strong>{{appareil.Code_machine}}</strong> </li>
+                <li>Modèle : <strong>{{appareil.modele}}</strong> </li>
+                <li>Situation : <strong>{{appareil.Situation}}</strong> </li>
+                <li>Numéro de serie : <strong>{{appareil.numero_serie}}</strong> </li>
+                <li>Fournisseur : <strong>{{appareil.Fournisseur}}</strong> </li>
+                <li>Etat  : <strong>{{appareil.Etat}}</strong> </li>
+                <li>Logiciel : <strong>{{appareil.Logiciel}}</strong> </li>
+                <li>Version du logiciel : <strong>{{appareil.version_logiciel}}</strong> </li>
+                <li>Password : <strong>{{appareil.Password}}</strong> </li>
+                <li>Matrice d'accès : <strong>{{appareil.matrcie_acces}}</strong> </li>
+                <li>Version Windows : <strong>{{appareil.Version_windows}}</strong> </li>
+                <li>Etat du matériel informatique : <strong>{{appareil.Etat_materiel_informatique}}</strong> </li>
+                <li>Sauvegarde : <strong>{{appareil.Sauvegarde}}</strong> </li>
+                <li>Planning de Sauvegarde : <strong>{{appareil.planning_sauvegarde}}</strong> </li>
+                <li>Documentation qualification : <strong>{{appareil.DOC_qualification}}</strong> </li>
+                <li>Connexion au réseau : <strong>{{appareil.Connecte_reseau}}</strong> </li>
+                <li>Connexion à l'AD : <strong>{{appareil.Connecte_AD}}</strong> </li>
+                <li>Connexion à une imprimante  : <strong>{{appareil.connecté_imprimante}}</strong> </li>
+                <li>Information  : <strong>{{appareil.Autres}}</strong> </li>
+                <li> <strong> Documentation  </strong></a> </li>
+                {% for image in image_appareil %}
+                {% if image.pdf %} 
+                <ol>
+                <dd> <a href="{{ image.pdf.url }}">{{ image.pdf.name}}</a> </dd>
+                </ol>
+                {%endif%}
+                {%endfor%}
+            </ul>         
+        </div>
+        {% if user.is_superuser %}
+        <div class="col">
+                <a href="{% url 'Equip_Img_update' appareil.id %}" class="btn btn-primary" style="margin-left: 5%;">Ajouter une image</a>
+                <!-- <a href="{% url 'Equip_Img_update' appareil.id %}" class="btn btn-primary" style="margin-left: 5%;">Remplacer une image</a> -->
+        </div>
+        <div> 
+            <a href="{% url 'equip-update' appareil.id %}" class="btn btn-primary" style="margin-left: 5%;">Mise à jour des informations</a>
+            <a href="{% url 'Equip_pdf_update' appareil.id %}" class="btn btn-primary" style="margin-left: 5%;">Ajouter une documentation</a>
+            <hr>
+            <a href="{% url 'matrice_detail' appareil.id %}" class="btn btn-primary" style="margin-left: 5%;">voir la matrice d'acces</a>
+        </div>
+        {%endif%}
+    </div>
+    
+</div>
+<div class="container-1">
+    <p> Les images</p>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        {% for image in image_appareil %}
+        {% if image.image %}
+        {% if image == image_appareil.0 %}
+        
+        {%else%}
+        <div class="col"  >
+            <a href="{{ image.image.url }}"><img src="{{ image.image.url }}" alt="Image {{ image.id }}" style="width: 400px; height: 400px; padding-bottom: 5px;"></a>
+        </div>
+        {%endif%}
+        {%endif%}
+        {% endfor %}
+    </div>  
+</div>
+{%if appareil.Emplacement|slice:":20" == 'Laboratoire Microbio' %}
+<a href="{% url 'labo1' %}" style="padding: 10px;"><button type="button" class="btn btn-info">Retour à la carte Microbio</button></a>
+{%else%}
+<a href="{% url 'labo2' %}" style="padding: 10px;"><button type="button" class="btn btn-info" >Retour à la carte Physico </button></a>
+{%endif%}
+{% if user.is_superuser %}
+<a href="{% url 'Update_img' appareil.id %}" style="padding: 10px;"><button type="button" class="btn btn-info" > Suppression ou modification d'image </button></a>
+{% endif %}
+{% endblock %}

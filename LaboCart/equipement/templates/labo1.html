@@ -1,0 +1,78 @@
+{% extends 'authentification/base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<h1 style="padding-left: 20px;">Pharma 5 Smart Factory</h1>
+<p class="para">Le Cartographie du laboratoire <strong> de Microbiologie</strong> avec l'emplacement des différents équipement qui y sont utilisés </p>
+<div class="image-container">
+    <img id="image-marqueurs" src="{% static 'images/Cart_labo_1.jpg' %}" alt="Description de l'image" class="cart">
+    <div class="Hôte a flux laminaire">
+      <div class="marqueur" style="top: 92%; left: 70%;"><a href="{% url 'appareil-detail' '154' %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+      <div class="marqueur" style="top: 77%; left: 10%;"><a href="{% url 'appareil-detail' '153' %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+      <div class="marqueur" style="top: 77%; left: 21%;"><a href="{% url 'appareil-detail' '155' %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+    </div>
+    <div class="Etuve">
+      <div class="marqueur" style="top: 68%; left: 53.3%;"><a href="{% url 'appareil-detail' '148' %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+      <div class="marqueur" style="top: 68%; left: 49%;"><a href="{% url 'appareil-detail' '149' %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+      <div class="marqueur" style="top: 68%; left: 44%;"><a href="{% url 'appareil-detail' '150' %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+      <div class="marqueur" style="top: 80%; left: 44%;"><a href="{% url 'appareil-detail' '151' %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+      <div class="marqueur" style="top: 91%; left: 48%;"><a href="{% url 'appareil-detail' '152' %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+    </div>
+    <div class="Refrigérateur">
+      <div class="marqueur" style="top: 70%; left: 27.5%;"><a href="{% url 'appareil-detail' '163' %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+      <div class="marqueur" style="top: 80%; left: 27.5%;"><a href="{% url 'appareil-detail' '161' %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+      <div class="marqueur" style="top: 89%; left: 27.5%;"><a href="{% url 'appareil-detail' '162' %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+    </div>
+    <div class="Balance">
+      <div class="marqueur" style="top: 8%; left: 72%;"><a href="{% url 'appareil-detail' '135' %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+      <div class="marqueur" style="top: 14%; left: 47%;"><a href="{% url 'appareil-detail' '139' %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+      <div class="marqueur" style="top: 88%; left: 13.5%;"><a href="{% url 'appareil-detail' '136' %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+    </div>
+    <div class="Autoclave">
+      <div class="marqueur" style="top: 26%; left: 69%;"><a href="{% url 'appareil-detail' '130' %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+      <div class="marqueur" style="top: 79%; left: 78.5%;"><a href="{% url 'appareil-detail' '131' %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+      <div class="marqueur" style="top: 92%; left: 78%;"><a href="{% url 'appareil-detail' '132' %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+    </div>
+    <div class="Agitateur">
+      <div class="marqueur" style="top: 8%; left: 79%;"><a href="{% url 'appareil-detail' '125' %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+      <div class="marqueur" style="top: 7%; left: 37%;"><a href="{% url 'appareil-detail' '126' %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+      <div class="marqueur" style="top: 90%; left: 17%;"><a href="{% url 'appareil-detail' '127' %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+      <div class="marqueur" style="top: 70%; left: 67%;"><a href="{% url 'appareil-detail' '128' %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+    </div>
+    <div class="Système de purification d'eau">
+      <div class="marqueur" style="top: 15%; left: 68%;"><a href="{% url 'appareil-detail' 165 %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+      <div class="marqueur" style="top: 92%; left: 95%;"><a href="{% url 'appareil-detail' 164 %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+    </div>
+    <div class="Bain Marie">
+      <div class="marqueur" style="top: 19%; left: 80%;"><a href="{% url 'appareil-detail' 133 %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+      <div class="marqueur" style="top: 89%; left: 21%;"><a href="{% url 'appareil-detail' 134 %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+    </div>
+    <div class="Lecteur des microplaques">
+      <div class="marqueur" style="top: 6%; left: 40%;"><a href="{% url 'appareil-detail' '158' %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+      <div class="marqueur" style="top: 26%; left: 47%;"><a href="{% url 'appareil-detail' '159' %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+    </div>
+    <div class="Imprimante">
+      <div class="marqueur" style="top: 6%; left: 45%;"><a href="{% url 'appareil-detail' '167' %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+      <div class="marqueur" style="top: 20%; left: 47%;"><a href="{% url 'appareil-detail' '168' %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+      <div class="marqueur" style="top: 89%; left: 62%;"><a href="{% url 'appareil-detail' '156' %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+    </div>
+    <div class="Autres">
+      <div class="marqueur" style="top: 12%; left: 9%;"><a href="{% url 'appareil-detail' '157' %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+      <div class="marqueur" style="top: 7%; left: 63%;"><a href="{% url 'appareil-detail' '166' %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+      <div class="marqueur" style="top: 7%; left: 76%;"><a href="{% url 'appareil-detail' '160' %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+      <div class="marqueur" style="top: 92%; left: 73%;"><a href="{% url 'appareil-detail' '143' %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+      <div class="marqueur" style="top: 12%; left: 22%;"><a href="{% url 'appareil-detail' '142' %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+      <div class="marqueur" style="top: 21%; left: 62%;"><a href="{% url 'appareil-detail' 140 %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+      <div class="marqueur" style="top: 90%; left: 57%;"><a href="{% url 'appareil-detail' 141 %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+      <div class="marqueur" style="top: 79%; left: 67%;"><a href="{% url 'appareil-detail' 129 %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+      <div class="marqueur" style="top: 80%; left: 37%;"><a href="{% url 'appareil-detail' 147 %}"><span class="glyphicon glyphicon-map-marker"></span></a></div>
+    </div>
+    <!-- <div id='texte-marqueur'>Bonjour</div> -->
+  </div>
+  <script src="{% static 'scripts.js' %}"></script>
+  <div style="padding: 3%;"><a href="{% url 'home' %}"><button type="button" class="btn btn-info" style="padding: 10px;">Retour à l'acceuil </button></a>
+  </div>
+
+
+
+{% endblock %}

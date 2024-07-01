@@ -1,0 +1,285 @@
+{% extends 'authentification/base.html' %}
+{% load static %}
+{% block content %}
+{% if user.is_authenticated %}
+<h1 style="padding-left: 20px;">Pharma 5 Smart Factory</h1>
+<div class="page-equip">
+<div class="container">
+  <div class="row row-cols-1 row-cols-xs-1 row-cols-md-3 row-cols-lg-6 g-3">
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/hplc.jpg' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail2' 'HPLC' %}">HPLC</a> </h5>
+          <p class="card-text">Utilisé pour l'analyse qualitative et quantitative qui permet l'identification, la séparation et le dosage de composés chimiques dans un mélange liquide, même à l'état de traces.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Spectrophotometre.jpg' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"> <a href="{% url 'equipement-detail2' 'Spectrophotom' %}">Spectrophotomètre</a> </h5>
+          <p class="card-text">utilisée dans nos laboratoires sert à mesurer l'absorbance ou la densité optique d'une substance chimique donnée dans une solution.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Balance.jpg' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail2' 'Balance Electronique' %}">Balance Electronique</a></h5>
+          <p class="card-text">Les balances sont utilisées dans les laboratoires de contrôle pour mesurer avec précision la masse des échantillons ou des substances utilisées dans les expériences ou les tests.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Phmeter.jpg' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail2' 'Phm' %}">Phmètre</a></h5>
+          <p class="card-text">Les pH-mètres permettent de mesurer et de contrôler le pH des échantillons pour vérifier leur conformité aux spécifications et aux normes établies.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Potentiometer.jpg' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail2' 'Potentiom' %}"> Potentiomètre </a></h5>
+          <p class="card-text">Un instrument utilisé dans les laboratoires de contrôle pour mesurer des différences de potentiel électrique, également appelées tension électrique.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/penetrometer.png' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail2' 'P' %}"> Pénétromètre </a></h5>
+          <p class="card-text">Un instrument essentiel utilisé dans les laboratoires de contrôle.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Imprimante.jpg' %}" class="card-img-top" alt=" Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail2' 'Imprimante' %}">Imprimante</a></h5>
+          <p class="card-text">Un instrument essentiel utilisé dans les laboratoires de contrôle pour l'impression des différents documents, resultats d'analyse.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Agitateur.jpg' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail2' 'Agitateur' %}">Agitateur</a></h5>
+          <p class="card-text">L’agitateur de laboratoire est l’équipement qui permet de mélanger et d’assurer l’homogénéité d’une solution.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Appareil de dissolution.jpg' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail2' 'Appareil de dissolution' %}">Appareil de dissolution</a></h5>
+          <p class="card-text">Equipement pour effectuer des tests de dissolution de comprimés et capsules, développé suivant les normes de la Pharmacopée.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Appareil_de_Friabilite.png' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail2' 'Appareil de friabilit' %}">Appareil de Friabilité</a></h5>
+          <p class="card-text">Un instrument essentiel utilisé dans les laboratoires de contrôle.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Bain marie.jpg' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail2' 'Bain marie' %}">Bain marie</a></h5>
+          <p class="card-text">Les bains-marie sont utilisés pour le chauffage et le maintien à une température constante de substances sensibles à la chaleur.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Densimetre.jpg' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail2' 'Densim' %}">Densimètre</a></h5>
+          <p class="card-text">Un densimètre est un instrument utilisé dans les laboratoires pharmaceutiques pour mesurer la densité d'une substance liquide.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Karl_fisher.png' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail2' 'Karl fischer' %}">Karl fischer</a></h5>
+          <p class="card-text">Karl fischer est un équipement couramment utilisé dans les laboratoires pharmaceutiques pour déterminer la teneur en eau dans les échantillons.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Etuve.png' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail2' 'Etuve' %}">Etuve</a></h5>
+          <p class="card-text">Une étuve est un équipement de laboratoire permettant de chauffer à température régulée des éléments par pression atmosphérique ou pression sous-vide.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Enregisteur_T.png' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail2' 'Enregistreur de' %}">Enregisteur T° et/ou d'humidité</a></h5>
+          <p class="card-text">Un instrument essentiel utilisé dans les laboratoires de contrôle.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/refregirateur.jpg' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail2' 'Refrig' %}">Refrigérateur</a></h5>
+          <p class="card-text"> Les réfrigérateurs permettent de maintenir une température de stockage interne (entre 1 °C et 15 °C) pour stocker et protéger les différents produits et autres substances sensibles aux températures</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/refroidisseur.png' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail2' 'refroidisseur Circulaire' %}">Refroidisseur Circulaire</a></h5>
+          <p class="card-text">Le refroidisseur circulaire est un équipement utilisé dans les laboratoires pharmaceutiques pour refroidir des échantillons ou des appareils nécessitant des températures basses ou contrôlées.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Four-a-Moufle.jpg' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail2' 'Four' %}">Four à Moufle </a></h5>
+          <p class="card-text">Il s'agit d'un four spécialement conçu pour effectuer des opérations de chauffage à des températures élevées, généralement supérieures à celles atteintes par les fours de laboratoire conventionnels.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/congelateur.png' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail2' 'Congelateur ' %}">Congelateur</a></h5>
+          <p class="card-text"> Les Congélateur tout comme les réfrigérateurs stock divers produits mais à température plus bas (en général dans les négatifs)</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Purificateur.jpg' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail2' 'Syst' %}">Système de purification d'eau </a></h5>
+          <p class="card-text"> Les systèmes de purification d'eau sont essentiels pour garantir la disponibilité d'une eau de haute qualité et pure, qui est utilisée dans diverses étapes du processus de fabrication pharmaceutique.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Appareil_de_delitement.jpg' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail2' 'Appareil de delitement' %}">Appareil de délitement</a></h5>
+          <p class="card-text">Un instrument essentiel utilisé dans les laboratoires de contrôle.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Appareil de distillation.jpg' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail2' 'Appareil de distillation' %}"> Appareil de distillation </a></h5>
+          <p class="card-text">
+            L'appareil de distillation est utilisé dans les laboratoires pharmaceutiques pour effectuer des distillations.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/CPG.jpg' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail2' 'CPG' %}">CPG</a></h5>
+          <p class="card-text">Un instrument essentiel utilisé dans les laboratoires de contrôle. Elle permet de séparer et d'analyser les composés volatils et semi-volatils présents dans les échantillons.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/microscope.png' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail2' 'Microscope' %}">Microscope</a></h5>
+          <p class="card-text">Un instrument essentiel utilisé dans les laboratoires de contrôle.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/refractometre.jpg' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail2' 'R' %}"> Réfractomètre </a></h5>
+          <p class="card-text">Les réfractomètres sont des instruments utilisés dans les laboratoires pharmaceutiques pour mesurer l'indice de réfraction d'une substance.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Uv lampe.png' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail2' 'Lampe UV' %}">Lampe UV</a></h5>
+          <p class="card-text">Un instrument essentiel utilisé dans les laboratoires de contrôle.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/rota_vapo.jpg' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail2' 'Rota vapor' %}"> Rota vapor </a></h5>
+          <p class="card-text">Un rotary evaporator est un équipement de laboratoire utilisé pour la distillation sous vide de solvants.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Ecoulement test.jpg' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail2' 'Ecoulement test' %}"> Ecoulement test </a></h5>
+          <p class="card-text">Un instrument essentiel utilisé dans les laboratoires de contrôle.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card h-100">
+        <img src="{% static 'images/Centrifugeuse.jpg' %}" class="card-img-top" alt="Image d'équipement">
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equipement-detail2' 'Centrifugeuse' %}"> Centrifugeuse </a></h5>
+          <p class="card-text">Un instrument essentiel utilisé dans les laboratoires de contrôle.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<a href="{% url 'home' %}"><button type="button" class="btn btn-info" style="padding: 10px;">Retour à l'acceuil </button></a>
+</div>
+{% else %}
+  <div class="container">
+    <div class="alert alert-danger alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Alert! </strong> Désolé, vous n'êtes pas connecter!  .
+    </div>
+  </div>
+  <a class="nav-link active" aria-current="page" href="{% url 'connexion' %}">Connectez-vous!</a>
+  {% endif %}
+
+{% endblock %}

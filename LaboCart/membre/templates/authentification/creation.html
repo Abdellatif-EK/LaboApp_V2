@@ -1,0 +1,22 @@
+{% extends 'authentification/base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+{% if form.errors %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    There was an error with your form...
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+{% endif %}
+<h3><b>Créer un nouveau utilisateur !</b></h3>
+<div class="forum1">
+<form action="{% url 'creation' %}" method=POST>
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form> 
+</div>
+{% else %}
+<h2> Désolé vous n'avez pas accès à cette page</h2>
+{% endif %}
+{% endblock %}

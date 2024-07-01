@@ -1,0 +1,45 @@
+{% extends 'authentification/base.html' %}
+{% load static %}
+{% block content %}
+{% if user.is_authenticated or not user.is_authenticated %}
+<h1 style="padding-left: 5%;">Pharma 5 Smart Factory</h1>
+<p class="para" style="padding-left: 5%;">Soyez les bienvenues sur notre site!</p>
+<div class="container" style="height: 500px">
+  <div class="row row-cols-1 row-cols-md-2 g-4" >
+    <div class="col" >
+      <div class="card" >
+        <!-- <img src="{% static 'images/Microbio.jpg' %}" class="card-img" alt="Labo Niveau 1"> -->
+        <iframe class="card-img" src="https://www.youtube.com/embed/AZvV9yzKfOg"  style="height: 300px;" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'equip1' %}"> Laboratoire Microbiologie</a></h5>
+          <p class="card-text" style="font-size: 14px;">Environnement hautement spécialisé et contrôlé, conçu pour mener des études et des analyses approfondies sur les micro-organismes. Le laboratoire est équipé d'une infrastructure moderne et de technologies de pointe, adaptées à la manipulation et à l'analyse de micro-organismes tels que les bactéries, les virus, les champignons et les parasites.</p>
+        </div>
+        <a href="{% url 'labo1' %}">
+        <div class="card-footer">
+          <small class="text-body-secondary" style="text-align: center;"> Voir la catre </small>
+        </div></a>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <video class="card-img" src="{% static 'videos/3Dlabo2.mp4' %}" style="height: 300px;" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen controls> vidéo du laboratoire de contrôle </video>
+        <!-- <iframe class="card-img" src="{% static 'videos/3Dlabo2.mp4' %}" style="height: 300px;" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen autoplay="false"></iframe> -->
+        <div class="card-body">
+          <h5 class="card-title"> <a href="{% url 'equip2' %}"> Laboratoire Physyco-chimique</a></h5>
+          <p class="card-text" style="font-size: 14px;">Entité spécialisée dans l'analyse et l'évaluation des produits pharmaceutiques afin de garantir leur qualité, leur sécurité et leur conformité aux normes réglementaires.Equipé d'une variété d'instruments et d'appareils sophistiqués pour effectuer des tests et des analyses approfondis sur les matières premières, les produits intermédiaires et les produits finis.</p>
+        </div>
+        <a href="{% url 'labo2' %}">
+        <div class="card-footer">
+          <small class="text-body-secondary" style="text-align: center;"> Voir la catre </small>
+        </div></a>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+
+  {% endif %}
+
+{% endblock %}

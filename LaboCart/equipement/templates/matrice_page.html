@@ -1,0 +1,54 @@
+{% extends 'authentification/base.html' %}
+{% load static %}
+{% block content %}
+<script src="{% static 'scripts.js' %}"></script>
+
+<div class="container">
+    <div class="row">
+      
+    </div>
+    <div class="row">
+      <div class="col-4" style="background-color: aliceblue;">
+        <h3>Equipements</h3>
+        <form action="{% url 'matrice_pagel' %}" method=POST>
+          {% csrf_token %}
+          <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" name="group">
+            <option selected>Choisissez un groupe</option>
+            <option value="1">HPLC</option>
+            <option value="2">Spectrophotomètre</option>
+            <option value="3">Balance</option>
+            <option value="4">Enceinte climatique</option>
+            <option value="5">Microbiologie</option>
+            <option value="autre">Autre</option>
+          </select>
+          <button type="submit" class="btn btn-secondary">Choisir</button>
+        </form>
+        
+      <table class="table">
+        <thead class="table-light"><tr>
+          <th scope="col">Code machine</th>
+          <th scope="col">Voir</th>
+        </tr></thead>
+        {% for appareils in appareil %}
+        <tbody>
+            <td><a href="{% url 'appareil-detail' appareils.id %}">{{ appareils.Code_machine }}</a> </td>
+            <td>    
+              <a href="{% url 'matrice_detail' appareils.id %}" class="btn btn-primary" id="matrice-button">Voir la matrice d'accès</a>          
+            </td> 
+       </tbody>
+      {% endfor %}
+      </table>  
+   
+      </div>
+      <div class="col-8"  style="background-color: rgb(236, 238, 239);">
+        <h3> La Matrice d'accès </h3>
+        <table class="table table-striped" id="matrice-container">
+          <thead></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock %}

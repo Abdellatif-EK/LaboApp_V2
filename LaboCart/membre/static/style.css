@@ -1,0 +1,137 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+.contenu{
+  min-height: 100%;
+  /* padding-bottom: 20px; */
+  margin-bottom: 8%;
+}
+.pied-page {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin-top: 80px;
+  height: 30px; /* ajustez cette valeur en fonction de la hauteur réelle de votre footer */
+  background-color: #139cac;
+}
+h1, h2, h3, h5{ 
+    padding-left: 10px;
+    color:#00abbe;
+}
+h5.card-title{
+  color:#00abbe;
+}
+p.para{
+  padding: 8px;
+}
+div.page-equip{
+  padding: 8px;
+}
+img.logo{
+    width: 100px; 
+    height: auto;
+    padding: 8px; 
+    padding-bottom: 16;
+    border-radius: 10%;
+  }
+.cart{
+  width: 100%; 
+  height: auto;
+}
+nav{
+    display: flex;
+    background-color: #ebebeb;   
+    /* padding: 10px; */
+}
+
+nav li{
+    display: inline-block;
+    font-size: 20px;
+    padding-left: 20px;
+    /* height: 10px;   */
+}
+nav li a.nav-link{
+  color: #00abbe;
+  text-align: center;
+}
+
+div.forum{
+    background-color: rgb(242, 241, 241);
+    width: 500px;
+    padding: 50px;
+    margin-top: 10px;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 50px;
+    font-size: 18px;
+}
+div.forum1{
+  background-color: rgb(242, 241, 241);
+  width: 1000px;
+  padding: 50px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 50px;
+  font-size: 18px;
+}
+
+
+p.card-text{
+  font-size: 8px;
+}
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.marqueur {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #00eab0;
+  border-radius: 50%;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+}
+.glyphicon {
+  font-size: 20px; 
+}
+
+img.card-img-top{
+  width: 120px; 
+  height: 100px;
+}
+@media only screen and (max-width: 880px) {
+  img.card-img-top{
+    width: 100px; 
+    height: 100px;
+  }
+}
+
+@media only screen and (max-width: 668px) {
+  img.card-img-top{
+    width: 100px; 
+    height: 110px;
+  }
+  
+}
+.container-1{
+  max-width: 600;
+  padding: 30px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
+}
+.img-top{
+  width: 400px; 
+  height: auto;
+  object-fit: cover;
+  border-radius: 10%;
+  shape-outside: margin-box;
+  margin: 0 20px 5px 0;
+  cursor: pointer;
+}
+

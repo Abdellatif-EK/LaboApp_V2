@@ -1,0 +1,29 @@
+{% extends 'authentification/base.html' %}
+{% load static %}
+{% block content %}
+{% if user.is_authenticated %}
+<div style="padding-left: 5%;">
+    <h1>Modification d'une image de l'appareil : <strong>{{image.equipement.Appareil}}</strong>  </h1>
+    <p> <strong> {{image.equipement.Code_machine}} </strong> </p>
+</div>
+<div class="container">
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Envoyer">
+     </form>
+</div>
+<br>
+<a href="{% url 'appareil-detail' image.equipement.id %}" style="padding: 10px;"><button type="button" class="btn btn-info">Retour aux détails</button></a>
+
+{% else %}
+  <div class="container">
+    <div class="alert alert-danger alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Alert! </strong> Désolé, vous n'êtes pas connecter!  .
+    </div>
+  </div>
+  <a class="nav-link active" aria-current="page" href="{% url 'connexion' %}">Connectez-vous!</a>
+  {% endif %}
+
+{% endblock %}
